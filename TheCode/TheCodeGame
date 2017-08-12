@@ -42,7 +42,7 @@ def game_main_loop():
     mouse_pressed = pygame.mouse.get_pressed()
 
     while not crashed:
-        for event in pygame.event.get(): # Trackuje vsechny veci co hrac dela!
+        for event in pygame.event.get(): # Tracks players actions
             if event.type == pygame.QUIT:
                 crashed = True
                 pygame.quit()
@@ -60,7 +60,7 @@ def game_main_loop():
         clock.tick(30) # FPS
 
 
-def button(text, x, y, w, h, a, font, w_s, w_v, action = None): #x, z, sirka, vyska, barva najeta na button, window sirka, window vyska, co chci delat jak to klikne, parametr akce
+def button(text, x, y, w, h, a, font, w_s, w_v, action = None): #x, z, wight, height, button_colour, window_wight, window_height, action
     mouse_location = pygame.mouse.get_pos()
     mouse_click = pygame.mouse.get_pressed()
     if x+w > mouse_location[0] > x and y+h > mouse_location[1] > y:
@@ -191,7 +191,7 @@ def game_intro():
         button("EXIT", 533, 593, 300, 126, display_white, "monospace", window_disp_sirska/2, window_disp_vyska/1.17, exit_func) #Button exit
         button("PLAY", 533, 244, 300, 126, display_white, "monospace",window_disp_sirska/2, window_disp_vyska/2.5, game_main_loop) #Button start
         button("SETUP", 496, 417, 375, 126, display_white, "monospace", window_disp_sirska/2, window_disp_vyska/1.6, lambda: under_construction("The settings are not ready, sorry come back soon!", display_white, display_black, display_black, 40, window_disp_sirska/2, window_disp_vyska/6.5)) #Button setup
-
+        #Ye i know this function is stupid and hardcoded and long but i will change that in a future!
 
         pygame.display.update()
 game_intro()
