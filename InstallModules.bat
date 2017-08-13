@@ -1,16 +1,17 @@
-﻿REM This is setup script for install requed modules for HraZaHodnePenez.py
+REM This is setup script for install requed modules for HraZaHodnePenez.py
 REM The modules which will be installed:
 REM 					-PyGame
 REM 					-Pygame GUI
 REM 					-git
 REM This script must be running with administrator privileges
+REM Installer by James Construct
 
 set ok=0
 color c
 @echo off
 cls
 
-echo Following modules will be installed on your computer: PyGame, Pygame GUI, git.
+echo Following modules will be installed on your computer: PyGame, Pygame GUI.
 :Ask
 echo Press Y to continue or N to abord action.
 set INPUT=
@@ -20,8 +21,8 @@ If /I "%INPUT%"=="n" exit
 echo Incorrect input & goto Ask
 
 :install
-echo Installing requed modules (PyGame, Pygame GUI, git)
-echo Installing PyGame (1/3)
+echo Installing requed modules (PyGame, Pygame GUI)
+echo Installing PyGame (1/2)
 pip install PyGame && (
    set pygame=OK
    set /a "ok=%ok%+1"
@@ -30,7 +31,7 @@ pip install PyGame && (
 )
 echo DONE!
 
-echo Installing Pygame GUI (2/3)
+echo Installing Pygame GUI (2/2)
 pip install PygameGUILib && (
    set gui=OK
    set /a "ok=%ok%+1"
@@ -39,23 +40,14 @@ pip install PygameGUILib && (
 )
 echo DONE!
 
-echo Installing git (3/3)
-pip install git && (
-   set git=OK
-   set /a "ok=%ok%+1"
-) || (
-   set git=FAILED
-)
-echo DONE!
 
-if "%ok%" EQU "3" (
+if "%ok%" EQU "2" (
 	echo All packeges where installed successfully.
 )
-if not "%ok%" EQU "3" (
+if not "%ok%" EQU "2" (
 	echo Installation status:
 	echo PyGame: %pygame%
 	echo Pygame GUI: %gui%
-	echo git: %git%
 )
 
 pause
