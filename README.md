@@ -8,4 +8,4 @@ Pygame, GUI(https://github.com/ddorn/GUI)
 
 Follow these commands: pip install pygame, pip install git+https://github.com/ddorn/GUI
 
-If these does not work for you feel free to contact me to a petr.gardas@gmail.com @gmail adress.
+If these does not work for you feel free to contact me to a peter.gardas@gmail.com @gmail adress.
